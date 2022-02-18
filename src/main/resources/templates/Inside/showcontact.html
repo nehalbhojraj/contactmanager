@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>MYCONTACTS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand active"  href="showcontact">Smart Contact Manager</a>
+    </div>
+    <ul class="nav navbar-nav"> 
+       <li class="active"><a href="index">DashBoard</a></li>
+     </ul>
+     
+      <ul class="nav navbar-nav"> 
+       <li class="active"><a href="contact">AddContacts</a></li>
+           
+    </ul>
+  </div>
+</nav>
+
+
+<table id="customers">
+  <tr >
+    <th>#Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+     <th >Nick Name</th>
+    <th>Email</th>
+    <th>Mobile Number</th>
+    <th>Action</th>
+  
+  </tr>
+  
+  <tr th:each="c:${contacts}">
+  <td> <a th:href="@{'/myuser/profile'}+${c.cid}">
+  
+  <span th:text="${'SCMUSER'+c.cid}"> </span>
+    </a>
+   
+    <td> <a th:href="@{'/myuser/profile'}+${c.cid}">
+     
+     <span th:text="${c.name}"></span>
+    
+    </a>
+           
+    </td>
+    <td th:text="${c.secondName}"/>
+    <td th:text="${c.nickname}"/>
+     <td th:text="${c.email}"/>
+    <td th:text="${c.phone}"></td>
+    <td >
+        <button type="button" class="btn btn-primary btn-sm">
+          <span class="glyphicon glyphicon-edit" th:href="edit"></span> Edit
+        </button>
+   
+        <button type="button" class="btn btn-danger btn-sm">
+          <span class="glyphicon glyphicon-delete" th:href="/delete"></span> Delete
+        </button>
+   
+   
+    </td>
+
+  </tr>
+
+  
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+</body>
+</html>

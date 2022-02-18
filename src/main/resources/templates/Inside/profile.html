@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>profile</title>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<style type="text/css">
+
+
+ body{padding: 10%; margin: 0%; background: #eee;}
+html{height: 100%; position: relative;}
+*{padding: 0; margin: 0; list-style-type: none; box-sizing: border-box; font-family: 'Josefin Sans', sans-serif;}
+.clear{clear: both;}
+
+
+#social{
+  float: left;
+  padding: 5px;
+  width: 80px;
+  height: 500px;
+  text-align: center;
+  margin: 15px -0 0 10px;
+  background: rgba(0,165,215,1);
+  background: -moz-linear-gradient(45deg, rgba(0,165,215,1) 0%, rgba(0,125,163,1) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(0,165,215,1)), color-stop(100%, rgba(0,125,163,1)));
+  background: -webkit-linear-gradient(45deg, rgba(0,165,215,1) 0%, rgba(0,125,163,1) 100%);
+  background: -o-linear-gradient(45deg, rgba(0,165,215,1) 0%, rgba(0,125,163,1) 100%);
+  background: -ms-linear-gradient(45deg, rgba(0,165,215,1) 0%, rgba(0,125,163,1) 100%);
+  background: linear-gradient(45deg, rgba(0,165,215,1) 0%, rgba(0,125,163,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a5d7', endColorstr='#007da3', GradientType=1 );
+  box-shadow: 1px 0 3px 2px rgba(0, 0, 0, 0.2) ;
+}
+
+#social li{
+  margin: 5px auto;
+  font-size: 2em;
+  color: #fff;
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  height: 60px;
+  line-height: 1.7;
+  cursor: pointer;
+}
+
+#logo2{
+  width: 60px;
+  margin: 100px auto 0 auto;
+}
+
+#logo2 img{
+  width: 80%
+}
+
+.profile{
+  width: 300px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  margin: 15px auto 15px 10px;
+  box-shadow: 1px 0 3px 2px rgba(0, 0, 0, 0.2) ;
+  float: left
+}
+
+#cover{
+  width: 150%;
+  height: 100%;
+  position: absolute;
+  transform: rotate(60deg);
+  top: -55%;
+  left: -20%;
+  background: rgba(0,165,215,1);
+  background: -moz-linear-gradient(45deg, rgba(0,165,215,1) 0%, rgba(0,125,163,1) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(0,165,215,1)), color-stop(100%, rgba(0,125,163,1)));
+  background: -webkit-linear-gradient(45deg, rgba(0,165,215,1) 0%, rgba(0,125,163,1) 100%);
+  background: -o-linear-gradient(45deg, rgba(0,165,215,1) 0%, rgba(0,125,163,1) 100%);
+  background: -ms-linear-gradient(45deg, rgba(0,165,215,1) 0%, rgba(0,125,163,1) 100%);
+  background: linear-gradient(45deg, rgba(0,165,215,1) 0%, rgba(0,125,163,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a5d7', endColorstr='#007da3', GradientType=1 );
+
+}
+
+#cover:before{
+  content: "";
+  position: absolute;
+  border-width: 150px 20px 30px 30px;
+  border-style: solid;
+  border-color: #0381a8 transparent transparent transparent;
+  top: 70%;
+  left: 95.92%;
+  transform: rotate(11.4deg);
+}
+
+#cover2{
+  border-style: solid;
+  border-width: 40px 80px 40px 40px;
+  border-color: transparent transparent #057091 transparent;
+  position: absolute;
+  top: 229.5px;
+  left: 77px;
+  transform: rotate(-37.4deg);
+}
+
+#cover2:before{
+  content: "";
+  border-style: solid;
+  border-width: 20px 24.2px 20px 20px;
+  border-color: transparent transparent #00A4D7 transparent;
+  position: absolute;
+  top: 18.9px;
+  left: -60.2px;
+  transform: rotate(-39.3deg);
+}
+
+#shadow{
+  clear: both;
+  height: 10px;
+  bottom: 200px;
+  overflow: hidden;
+  margin: 356px 0 0 0
+}
+
+#shadow img{
+  width: 80%;
+  height: 10px;
+  padding: 0 0px 0 20px;
+  opacity: 0.5;
+}
+
+
+#info{
+  margin: 360px auto;
+  width: 90%;
+  border-top: 1px solid #ccc;
+  padding: 10px 0 0 0;
+}
+
+#info ul{
+  
+}
+
+#info li{
+  padding: 2px 0 2px 10px;
+  margin: 3px auto;
+  font-size: 10pt;
+}
+
+#username{
+  text-align: center;
+  font-size: 1.5em!important;
+  line-height: 1;
+  font-weight: bold;
+}
+
+
+#avatar{
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  z-index: 1;
+  border: solid 5px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 20px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+#info i{
+  font-size: 14pt;
+  margin: 0 5px;
+  color: #057091
+}
+
+
+#avatar img{
+  width: 100%;
+
+}
+
+#avatar:hover{
+  border: solid 3px rgba(255, 255, 255, 0.6);
+}
+
+#logo{
+  position: absolute;
+  top: 20px;
+  right: 23px;
+}
+
+#logo img{
+  width: 110px;
+  opacity: 0.6;
+}
+
+
+#twitter:hover{
+  background-color: #1DB5F6;
+}
+
+#twitter i{
+  transition: .5s;
+}
+
+#twitter:hover  > i{
+  transform: scale(1.3);
+  transition: .5s;
+}
+
+
+#facebook:hover{
+  background-color: #4267B2;
+}
+
+#facebook i{
+  transition: .5s;
+}
+
+#facebook:hover  > i{
+  transform: scale(1.3);
+  transition: .5s;
+}
+
+#instagram:hover{
+  background-color: #E23F5F;
+}
+
+#instagram i{
+  transition: .5s;
+}
+
+#instagram:hover  > i{
+  transform: scale(1.3);
+  transition: .5s;
+}
+
+#google-plus:hover{
+  background-color: #DC4A38;
+}
+
+#google-plus i{
+  transition: .5s;
+}
+
+#google-plus:hover  > i{
+  transform: scale(1.3);
+  transition: .5s;
+}
+
+#linkedin:hover{
+  background-color: #0077B5;
+}
+
+#linkedin i{
+  transition: .5s;
+}
+
+#linkedin:hover  > i{
+  transform: scale(1.3);
+  transition: .5s;
+}
+</style>
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+<div id="social">
+    <ul>
+        <li id="HTERCUMANP"><i class="fa fa-twitter"></i></li>
+        <li id="100008152065270"><i class="fa fa-facebook"></i></li>
+        <li id="harunpehlivantebimtebitagem"><i class="fa fa-instagram"></i></li>
+        <li id="111320383727376607540"><i class="fa fa-google-plus"></i></li>
+        <li id="in/harun-pehlivan-0aa34252"><i class="fa fa-linkedin "></i></li>
+    </ul>
+    <div id="logo2">
+        <img src="" />
+    </div>
+</div>
+<div class="profile">
+    <div id="avatar">
+        <img src="/img/sara.jpg"/>
+    </div>
+    <div id="cover"></div>
+    <div id="cover2"></div>
+    <div id="info">
+        <ul>
+            <li id="username"><span th:text="${contact.name}"></span><span th:text="${contact.secondName}" ></span>        </li>
+            <li><i class="fa fa-map-marker" th:text="${contact.work}"></i></li>
+            <li><i class="fa fa-globe"   th:text="${contact.email}"></i></li>
+            <li><i class="fa fa-phone" th:text="${contact.phone}"></i> </li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div id="logo">
+        <img src="" />
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
